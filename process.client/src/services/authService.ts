@@ -1,9 +1,5 @@
 import axios from 'axios';
-import https from 'https';
 
-const httpsAgent = new https.Agent({
-    rejectUnauthorized: false,
-  });
 
 export const login = async (username: string, password: string) => {
     const token_endpoint = import.meta.env.VITE_KEYCLOAK_URL;
@@ -19,7 +15,6 @@ export const login = async (username: string, password: string) => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            httpsAgent
         });
         return response.data;
     } catch (error) {
@@ -40,7 +35,6 @@ export const refreshToken = async () => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            httpsAgent
         });
         return response.data;
     } catch (error) {
