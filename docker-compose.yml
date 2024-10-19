@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  keycloak:
+    build:
+      context: ./keycloak
+    ports:
+      - "8080:8080"
+    depends_on:
+      - keycloakdb
+
+  keycloakdb:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+
+  process.service:
+    build:
+      context: ./process.service
+    ports: 
+      - "7165:443"
+    depends_on:
+      - keycloakdb
+
+  process.client:
+    build:
+      context: ./process.client
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - process.service
+
+volumes:
+  postgres_data:
+  process_data:

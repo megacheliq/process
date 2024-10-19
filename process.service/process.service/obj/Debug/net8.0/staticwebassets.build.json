@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XIfQImWRI92ppyltVpECuqNs1VVaasWl3cu1CezHwxA=",
+  "Source": "process.service",
+  "BasePath": "_content/process.service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
