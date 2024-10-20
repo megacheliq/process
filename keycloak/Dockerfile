@@ -25,10 +25,8 @@ ENV KC_DB=postgres \
     KC_METRICS_ENABLED=true \
     KC_HEALTH_ENABLED=true \
     KEYCLOAK_ADMIN=barakichbamich@gmail.com \
-    KEYCLOAK_ADMIN_PASSWORD=4I!T@z2yrQM7z8@! \
-    KC_HTTPS_CERTIFICATE_KEY=/opt/keycloak/conf/privkey.pem \
-    KC_HTTPS_CERTIFICATE=/opt/keycloak/conf/fullchain.pem;
+    KEYCLOAK_ADMIN_PASSWORD=4I!T@z2yrQM7z8@!
 
 COPY ./keycloak-export/ /opt/keycloak/data/import/
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--import-realm"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--https-certificate-file=/opt/keycloak/conf/fullchain.pem", "--https-certificate-key-file=/opt/keycloak/conf/privkey.pem", "--import-realm"]
