@@ -30,6 +30,9 @@ services:
       context: ./process.client
     ports:
       - "443:443"
+    volumes:
+      - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/etc/nginx/certs/server.crt
+      - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/etc/nginx/certs/server.key
     depends_on:
       - process.service
 

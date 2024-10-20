@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-  baseURL: 'https://82.146.36.64:7165/api/',
+  baseURL: 'https://tradexclub.ru:7165/api/',
 });
 
 export default axiosClient;
