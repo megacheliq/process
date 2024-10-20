@@ -1,0 +1,14 @@
+# Настройка для Keycloak (на порту 8443)
+https://82.146.36.64:8443 {
+    reverse_proxy keycloak:8443
+}
+
+# Настройка для фронтенда (на порту 443)
+https://82.146.36.64:443 {
+    reverse_proxy process.client:443
+}
+
+# Настройка для бэкенда (на порту 7165)
+https://82.146.36.64:7165 {
+    reverse_proxy process.service:7165
+}
