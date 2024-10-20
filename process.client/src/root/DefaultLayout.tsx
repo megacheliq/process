@@ -317,7 +317,7 @@ const DefaultLayout: React.FC = () => {
                                 <div data-v-b0a55bb2="" className="online-dot offline">
                                 </div>
                                 <div data-v-b0a55bb2="" className="info ml-2">
-                                    <a data-v-b0a55bb2="" href="/profile" title="barakichbamich@gmail.com" className="d-block user-email">User: barakichbami...</a>
+                                    <a data-v-b0a55bb2="" href="/profile" title="17.8.0 monera" className="d-block user-email">User: 17.8.0 mone...</a>
                                 </div>
                             </div>
                             <button data-v-b0a55bb2="" className="btn btn-secondary" onClick={handleShow}>Offline</button>
