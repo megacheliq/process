@@ -10,6 +10,7 @@ services:
     volumes:
       - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/opt/keycloak/fullchain.pem
       - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/opt/keycloak/privkey.pem
+    user: root
 
   keycloakdb:
     image: postgres:15
