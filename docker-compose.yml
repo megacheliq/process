@@ -5,6 +5,9 @@ services:
       context: ./keycloak
     ports:
       - "8443:8443"
+    volumes:
+      - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/opt/keycloak/conf/https.crt
+      - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/opt/keycloak/conf/https.key
     depends_on:
       - keycloakdb
 
@@ -22,6 +25,9 @@ services:
       context: ./process.service
     ports: 
       - "7165:443"
+    volumes:
+      - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/app/https.crt
+      - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/app/https.key
     depends_on:
       - keycloakdb
 
