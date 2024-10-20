@@ -29,4 +29,4 @@ ENV KC_DB=postgres \
 
 COPY ./keycloak-export/ /opt/keycloak/data/import/
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--https-certificate-file=/opt/keycloak/conf/fullchain.pem", "--https-certificate-key-file=/opt/keycloak/conf/privkey.pem", "--import-realm", "--verbose"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--https-certificate-file=/opt/keycloak/fullchain.pem", "--https-certificate-key-file=/opt/keycloak/privkey.pem", "--import-realm", "--verbose"]
