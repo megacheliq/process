@@ -26,7 +26,7 @@ ENV KC_DB=postgres \
     KC_HEALTH_ENABLED=true \
     KEYCLOAK_ADMIN=barakichbamich@gmail.com \
     KEYCLOAK_ADMIN_PASSWORD=4I!T@z2yrQM7z8@! \
-    KC_HTTPS_KEYSTORE=/opt/keycloak/conf/privkey.pem \
+    KC_HTTPS_CERTIFICATE_KEY=/opt/keycloak/conf/privkey.pem \
     KC_HTTPS_CERTIFICATE=/opt/keycloak/conf/fullchain.pem;
 
 COPY ./keycloak-export/ /opt/keycloak/data/import/

@@ -5,11 +5,12 @@ services:
       context: ./keycloak
     ports:
       - "8443:8443"
-    volumes:
-      - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/opt/keycloak/conf/privkey.pem
-      - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/opt/keycloak/conf/fullchain.pem
     depends_on:
       - keycloakdb
+    volumes:
+      - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/opt/keycloak/conf/fullchain.pem
+      - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/opt/keycloak/conf/privkey.pem
+
 
   keycloakdb:
     image: postgres:15
