@@ -12,8 +12,6 @@ RUN /opt/keycloak/bin/kc.sh build
 FROM quay.io/keycloak/keycloak:latest
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
-RUN chmod 644 /opt/keycloak/conf/fullchain.pem /opt/keycloak/conf/privkey.pem
-
 ENV KC_DB=postgres \
     KC_DB_URL=jdbc:postgresql://keycloakdb:5432/keycloak \
     KC_DB_USERNAME=keycloak \
@@ -28,5 +26,7 @@ ENV KC_DB=postgres \
     KEYCLOAK_ADMIN_PASSWORD=4I!T@z2yrQM7z8@!
 
 COPY ./keycloak-export/ /opt/keycloak/data/import/
+
+USER keycloak
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--https-certificate-file=/opt/keycloak/fullchain.pem", "--https-certificate-key-file=/opt/keycloak/privkey.pem", "--import-realm", "--verbose"]
