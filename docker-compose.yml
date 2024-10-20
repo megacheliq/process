@@ -21,7 +21,7 @@ services:
     build:
       context: ./process.service
     ports: 
-      - "7165:443"
+      - "7165:7165"
     depends_on:
       - keycloakdb
 
@@ -29,7 +29,6 @@ services:
     build:
       context: ./process.client
     ports:
-      - "80:80"
       - "443:443"
     depends_on:
       - process.service
