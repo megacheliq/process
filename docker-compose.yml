@@ -21,7 +21,7 @@ services:
     build:
       context: ./process.service
     ports: 
-      - "7165:7165"
+      - "7165:443"
     depends_on:
       - keycloakdb
 
@@ -29,22 +29,9 @@ services:
     build:
       context: ./process.client
     ports:
-      - "80:80"
       - "443:443"
     depends_on:
       - process.service
-
-  # caddy:
-  #   image: caddy:latest
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - ./Caddyfile:/etc/caddy/Caddyfile
-  #   depends_on:
-  #     - keycloak
-  #     - process.service
-  #     - process.client
 
 volumes:
   postgres_data:
