@@ -1,4 +1,9 @@
+import { Table } from "@/root/types";
+import { useState } from "react";
+
 const OperationOut: React.FC = () => {
+    const [selectedTable, setSelectedTable] = useState<Table>(Table.New);
+
     return (
         <div className="content-wrapper" style={{ minHeight: '90vh' }}>
             <div className="content-header">
@@ -30,13 +35,13 @@ const OperationOut: React.FC = () => {
                                     <div className="card-header p-0 pt-1">
                                         <ul className="nav nav-tabs nav-justified">
                                             <li className="nav-item">
-                                                <a href="#" className="nav-link active">New</a>
+                                                <a href="#" className={`nav-link ${selectedTable === Table.New ? 'active' : ''}`} onClick={() => setSelectedTable(Table.New)}>New</a>
                                             </li>
                                             <li className="nav-item">
-                                                <a href="#" className="nav-link">In work</a>
+                                                <a href="#" className={`nav-link ${selectedTable === Table.InWork ? 'active' : ''}`} onClick={() => setSelectedTable(Table.InWork)}>In work</a>
                                             </li>
                                             <li className="nav-item">
-                                                <a href="#" className="nav-link">History</a>
+                                                <a href="#" className={`nav-link ${selectedTable === Table.History ? 'active' : ''}`} onClick={() => setSelectedTable(Table.History)}>History</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -486,7 +491,7 @@ const OperationOut: React.FC = () => {
                                                     </tfoot>
                                                 </table>
                                             </div>
-                                        </div>                                       
+                                        </div>
                                     </div>
                                 </div>
                             </div>

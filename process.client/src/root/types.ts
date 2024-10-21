@@ -88,6 +88,12 @@ export interface UpdateGroupDto {
     limits?: LimitDto[];
 }
 
+export enum Table {
+    New = 0,
+    InWork = 1,
+    History = 2
+}
+
 export enum Status {
     active = 0,
     disabled = 1,
