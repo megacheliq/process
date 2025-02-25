@@ -27,8 +27,7 @@ ENV KC_DB=postgres \
 
 COPY ./keycloak-export/ /opt/keycloak/data/import/
 
-USER root
+COPY ./fullchain.pem /opt/keycloak/conf/fullchain.pem
+COPY ./privkey.pem /opt/keycloak/conf/privkey.pem
 
-RUN chmod 777 /opt/keycloak/conf/fullchain.pem /opt/keycloak/conf/privkey.pem
-
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--https-certificate-file=/opt/keycloak/fullchain.pem", "--https-certificate-key-file=/opt/keycloak/privkey.pem", "--import-realm", "--verbose"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--https-certificate-file=/opt/keycloak/conf/fullchain.pem", "--https-certificate-key-file=/opt/keycloak/conf/privkey.pem", "--import-realm", "--verbose"]

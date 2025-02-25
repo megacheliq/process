@@ -7,10 +7,6 @@ services:
       - "8443:8443"
     depends_on:
       - keycloakdb
-    volumes:
-      - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/opt/keycloak/fullchain.pem
-      - /etc/letsencrypt/live/tradexclub.ru/privkey.pem:/opt/keycloak/privkey.pem
-    user: root
 
   keycloakdb:
     image: postgres:15
@@ -24,7 +20,7 @@ services:
   process.service:
     build:
       context: ./process.service
-    ports: 
+    ports:
       - "7165:443"
     volumes:
       - /etc/letsencrypt/live/tradexclub.ru/fullchain.pem:/app/https.crt
